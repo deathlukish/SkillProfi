@@ -1,12 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SkillProfiApi.Controllers
 {
+    [Authorize(Roles = "Admin")]
+    [ApiController]
+    [Route("webapi/[controller]")]
     public class UserController : ControllerBase
     {
-        public IActionResult Index()
+        [AllowAnonymous]
+        [HttpPost("GetToken")]
+        public IActionResult GetToken()
         {
-            throw new NotImplementedException();
+            return Ok("dfds");
+        }
+        [HttpPost("ReNewToken")]
+        public IActionResult ReNewToken() 
+        {
+            return Ok("newtoken");
         }
     }
 }
