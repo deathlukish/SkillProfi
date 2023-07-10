@@ -2,11 +2,11 @@
 
 namespace SkillProfiApi.Controllers
 {
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
         public IActionResult Index()
         {
-            return View();
+            throw new NotImplementedException();
         }
     }
 }
